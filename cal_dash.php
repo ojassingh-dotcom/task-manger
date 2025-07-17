@@ -55,50 +55,22 @@ if (isset($_SESSION['rollno'])) {
       font-size: 14px;
     }
     .main-layout {
-      max-width: 1200px;
+      max-width: 600px;
       margin: 40px auto;
       display: flex;
+      align-items: center;
       gap: 30px;
       flex-wrap: wrap;
-      padding: 0 20px;
+      padding: 20px;
     }
-    .calendar-box, .right-panel {
+     .right-panel {
       background: white;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .calendar-box {
-      flex: 1 1 300px;
-      padding: 20px;
-      cursor: pointer;
-    }
-    .calendar-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .calendar-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-      font-size: 12px;
-    }
-    .calendar-grid div {
-      background: #f4f9ff;
-      border: 1px solid #dbeeff;
-      text-align: center;
-      padding: 10px;
-      border-radius: 4px;
-    }
-    .day-header {
-      font-weight: 600;
-      color: #0d6efd;
-    }
-    .right-panel {
-      flex: 2 1 600px;
       padding: 40px;
     }
+    
+    
     .btn-tile {
       background: white;
       border: 2px solid #0d6efd;
@@ -148,12 +120,7 @@ if (isset($_SESSION['rollno'])) {
 </nav>
 
 <div class="main-layout">
-  <div class="calendar-box" data-bs-toggle="modal" data-bs-target="#calendarModal">
-    <div class="calendar-header">
-      <h6 id="miniCalendarMonth" class="text-primary"></h6>
-    </div>
-    <div class="calendar-grid" id="calendarMini"></div>
-  </div>
+ 
   <div class="right-panel">
     <div class="text-center mb-4">
       <h2>📚 Welcome to Your Dashboard</h2>
@@ -168,81 +135,6 @@ if (isset($_SESSION['rollno'])) {
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="calendarModal" tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content p-3">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <button class="btn btn-sm btn-outline-primary" onclick="changeMonthInModal(-1)">←</button>
-        <h5 id="calendarMonth" class="mb-0 text-primary"></h5>
-        <button class="btn btn-sm btn-outline-primary" onclick="changeMonthInModal(1)">→</button>
-      </div>
-      <div class="calendar-grid" id="calendarFull"></div>
-    </div>
-  </div>
-</div>
 
-<script>
-const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-const deadlineDates = <?= json_encode($allDates) ?>;
-
-function getStatusClass(dateStr) {
-  for (const obj of deadlineDates) {
-    if (obj.date === dateStr) {
-      if (obj.status === "pending") return "highlight-red";
-      if (obj.status === "in_progress") return "highlight-yellow";
-      if (obj.status === "completed") return "highlight-green";
-    }
-  }
-  return "";
-}
-
-function renderCalendar(month, year, gridId, titleId = null) {
-  const grid = document.getElementById(gridId);
-  const title = titleId ? document.getElementById(titleId) : null;
-  if (!grid) return;
-  grid.innerHTML = "";
-  if (title) title.textContent = `${monthNames[month]} ${year}`;
-  else if (gridId === "calendarMini") {
-    const miniTitle = document.getElementById("miniCalendarMonth");
-    if (miniTitle) miniTitle.textContent = `${monthNames[month]} ${year}`;
-  }
-
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-  ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].forEach(day => {
-    const el = document.createElement("div");
-    el.className = "day-header";
-    el.textContent = day;
-    grid.appendChild(el);
-  });
-
-  for (let i = 0; i < firstDay; i++) grid.appendChild(document.createElement("div"));
-
-  for (let d = 1; d <= daysInMonth; d++) {
-    const cell = document.createElement("div");
-    const dateStr = `${year}-${String(month+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-    cell.textContent = d;
-    const statusClass = getStatusClass(dateStr);
-    if (statusClass) cell.classList.add(statusClass);
-    grid.appendChild(cell);
-  }
-}
-
-function changeMonthInModal(offset) {
-  currentMonth += offset;
-  if (currentMonth > 11) currentMonth = 0, currentYear++;
-  else if (currentMonth < 0) currentMonth = 11, currentYear--;
-  renderCalendar(currentMonth, currentYear, "calendarFull", "calendarMonth");
-}
-
-renderCalendar(currentMonth, currentYear, "calendarMini");
-document.getElementById("calendarModal").addEventListener("shown.bs.modal", () => {
-  renderCalendar(currentMonth, currentYear, "calendarFull", "calendarMonth");
-});
-</script>
 </body>
 </html>

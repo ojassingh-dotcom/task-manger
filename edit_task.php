@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<div class='alert alert-danger'>$showError</div>";
     }
     ?>
-    <form method="post">
+    <form method="post" action="edit_task.php">
         <div class="input-holder">
             <label for="title">Title</label>
             <input type="text" name="title" class="input-1" id="title" value="<?php echo $task['title']; ?>" required>

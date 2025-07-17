@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 <body>
 <div class="container mt-5">
-    <?php if ($showError): ?>
+    <?php if ($showError){ ?>
         <div class="alert alert-danger"><?= $showError ?></div>
-    <?php endif; ?>
+    <?php } ?>
     <a href="show_task.php" class="btn btn-primary">Back to All Tasks</a>
 </div>
 </body>
