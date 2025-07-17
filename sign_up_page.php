@@ -23,17 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $existSql = "SELECT * FROM `users` WHERE `rollno` = '$rollno'";
     $result = mysqli_query($conn, $existSql);
 
-    if (!$result) {
-        $showError = "Error checking existing user: " . mysqli_error($conn);
-    } elseif (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         $showError = "User with this roll number already exists.";
     } else {
         $sql1 = "SELECT * FROM `rollnos` WHERE `rollno` = '$rollno'";
         $result = mysqli_query($conn, $sql1);
 
-        if (!$result) {
-            $showError = "Error verifying roll number: " . mysqli_error($conn);
-        } elseif (mysqli_num_rows($result) == 0) {
+        if (mysqli_num_rows($result) == 0) {
             $showError = "Roll number not recognized. Please contact admin.";
         } else {
             if ($password !== $cpassword) {
