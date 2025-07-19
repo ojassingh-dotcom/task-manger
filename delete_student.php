@@ -1,14 +1,6 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "new_task_manag_db";
-$conn = mysqli_connect($servername, $username, $password, $database);
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
-
+include 'partials/new_dbconnection.php';
 
 if (!isset($_GET['rollno']) ) {
     die("Invalid student number.");
