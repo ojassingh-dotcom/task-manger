@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2025 at 08:04 AM
+-- Generation Time: Jul 17, 2025 at 09:51 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,7 +62,8 @@ INSERT INTO `rollnos` (`sno`, `rollno`, `department`) VALUES
 (2, 1002, 'electrical'),
 (3, 1003, 'information_technology'),
 (4, 1004, 'mechanical'),
-(8, 1005, 'computer_science');
+(8, 1005, 'computer_science'),
+(9, 1006, 'civil');
 
 -- --------------------------------------------------------
 
@@ -91,14 +92,12 @@ INSERT INTO `submitted_tasks` (`id`, `task_id`, `title`, `description`, `submitt
 (2, 2, 'Hindi', 'Completed this task', '1001', 'Isaac', 'electronics', '2025-07-06', ''),
 (3, 3, ' image', 'image upload', '1001', 'Isaac', 'electronics', '2025-07-06', 'tasks/uploads/686ab41daa49c.jpg'),
 (35, 35, 'New test', 'Completed sir', '1004', 'Aditya', 'mechanical', '2025-07-11', ''),
-(43, 43, 'World War Z', 'mission completed', '1004', 'Aditya', 'mechanical', '2025-07-11', 'tasks/uploads/cats 2.jpg'),
 (70, 70, 'new dept check', 'Submission', '1005', 'Aryan', 'computer_science', '2025-07-13', 'tasks/uploads/cat.jpg'),
 (74, 74, 'username check', 'yay done', '1004', 'Aditya', 'mechanical', '2025-07-13', 'tasks/uploads/cat.jpg'),
-(75, 43, 'World War Z', 'completed check', '1004', 'Aditya', 'mechanical', '2025-07-14', 'tasks/uploads/cat.jpg'),
 (76, 31, ' image', 'complete check 2', '1004', 'Aditya', 'mechanical', '2025-07-14', 'tasks/uploads/cat.jpg'),
 (77, 35, 'New test', 'checking color', '1004', 'Aditya', 'mechanical', '2025-07-14', ''),
 (78, 69, 'new dept check', 'checking submit', '1004', 'Aditya', 'mechanical', '2025-07-14', 'tasks/uploads/cat.jpg'),
-(79, 41, 'World War Z', 'comp', '1002', 'Harshit', 'electrical', '2025-07-14', '');
+(80, 47, 'Welcome task', 'welcome', '1004', 'Aditya', 'mechanical', '2025-07-15', 'tasks/uploads/cats 2.jpg');
 
 -- --------------------------------------------------------
 
@@ -136,21 +135,14 @@ INSERT INTO `tasks` (`id`, `title`, `description`, `assigned_to`, `username`, `d
 (29, ' image', 'chck img upload', 1002, 'Harshit', 'electrical', '2025-08-02', 'pending', '2025-07-03 21:47:17', ''),
 (30, ' image', 'chck img upload', 1003, 'Ojas', 'information_technology', '2025-08-02', 'pending', '2025-07-03 21:47:17', ''),
 (31, ' image', 'chck img upload', 1004, 'Aditya', 'mechanical', '2025-08-02', 'completed', '2025-07-03 21:47:17', ''),
-(32, 'New test', 'testimgggggggg', 1001, 'Isaac', 'electronics', '2025-07-19', 'pending', '2025-07-03 22:46:26', 'uploads/686708427bfba.png'),
-(33, 'New test', 'testimgggggggg', 1002, 'Harshit', 'electrical', '2025-07-19', 'in_progress', '2025-07-03 22:46:26', 'uploads/686708427bfba.png'),
-(34, 'New test', 'testimgggggggg', 1003, 'Ojas', 'information_technology', '2025-07-19', 'pending', '2025-07-03 22:46:26', 'uploads/686708427bfba.png'),
 (35, 'New test', 'testimgggggggg', 1004, 'Aditya', 'mechanical', '2025-07-19', 'completed', '2025-07-03 22:46:26', 'uploads/686708427bfba.png'),
 (36, 'New task ', 'pdf checking', 1001, 'Isaac', 'electronics', '2025-07-27', 'in_progress', '2025-07-03 23:34:39', 'uploads/6867138f2e3eb.pdf'),
 (37, 'New task ', 'pdf checking', 1002, 'Harshit', 'electrical', '2025-07-27', 'completed', '2025-07-03 23:34:39', 'uploads/6867138f2e3eb.pdf'),
 (38, 'New task ', 'pdf checking', 1003, 'Ojas', 'information_technology', '2025-07-27', 'pending', '2025-07-03 23:34:39', 'uploads/6867138f2e3eb.pdf'),
 (39, 'New task ', 'pdf checking', 1004, 'Aditya', 'mechanical', '2025-07-27', 'pending', '2025-07-03 23:34:39', 'uploads/6867138f2e3eb.pdf'),
-(40, 'World War Z', 'Complete the mission', 1001, 'Isaac', 'electronics', '2025-07-25', 'pending', '2025-07-04 18:04:18', 'uploads/686817a23bf7a.pdf'),
-(41, 'World War Z', 'Complete the mission', 1002, 'Harshit', 'electrical', '2025-07-25', 'completed', '2025-07-04 18:04:18', 'uploads/686817a23bf7a.pdf'),
-(42, 'World War Z', 'Complete the mission', 1003, 'Ojas', 'information_technology', '2025-07-25', 'pending', '2025-07-04 18:04:18', 'uploads/686817a23bf7a.pdf'),
-(43, 'World War Z', 'Complete the mission', 1004, 'Aditya', 'mechanical', '2025-07-25', 'completed', '2025-07-04 18:04:18', 'uploads/686817a23bf7a.pdf'),
 (45, 'Welcome task', 'Welcome everybody', 1002, 'Harshit', 'electrical', '2025-07-24', 'pending', '2025-07-06 19:35:29', 'uploads/cat.jpg'),
 (46, 'Welcome task', 'Welcome everybody', 1003, 'Ojas', 'information_technology', '2025-07-24', 'pending', '2025-07-06 19:35:29', 'uploads/cat.jpg'),
-(47, 'Welcome task', 'Welcome everybody', 1004, 'Aditya', 'mechanical', '2025-07-24', 'pending', '2025-07-06 19:35:29', 'uploads/cat.jpg'),
+(47, 'Welcome task', 'Welcome everybody', 1004, 'Aditya', 'mechanical', '2025-07-24', 'completed', '2025-07-06 19:35:29', 'uploads/cat.jpg'),
 (48, 'Another check', 'checking', 1001, 'Isaac', 'electronics', '2025-07-20', 'pending', '2025-07-06 19:37:14', 'uploads/cat.jpg'),
 (49, 'Another check', 'checking', 1002, 'Harshit', 'electrical', '2025-07-20', 'pending', '2025-07-06 19:37:14', 'uploads/cat.jpg'),
 (50, 'Another check', 'checking', 1003, 'Ojas', 'information_technology', '2025-07-20', 'pending', '2025-07-06 19:37:14', 'uploads/cat.jpg'),
@@ -245,13 +237,13 @@ ALTER TABLE `admin_info`
 -- AUTO_INCREMENT for table `rollnos`
 --
 ALTER TABLE `rollnos`
-  MODIFY `sno` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sno` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `submitted_tasks`
 --
 ALTER TABLE `submitted_tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `tasks`
