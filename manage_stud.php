@@ -1,14 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "new_task_manag_db";
-
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-if (!$conn) {
-    die("Sorry, we failed to connect: " . mysqli_connect_error());
-}
+include 'partials/new_dbconnect.php';
 $sql = "SELECT * FROM rollnos ORDER BY sno ASC";
 $students = mysqli_query($conn, $sql);
 

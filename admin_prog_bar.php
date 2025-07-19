@@ -1,13 +1,6 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "new_task_manag_db";
-$conn = mysqli_connect($servername, $username, $password, $database);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+include 'partials/new_dbconnect.php';
 $sql = "SELECT users.username, users.rollno, tasks.title, tasks.due_date, tasks.status, tasks.id
         FROM tasks
         INNER JOIN users ON tasks.assigned_to = users.rollno

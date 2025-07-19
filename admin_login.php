@@ -2,15 +2,7 @@
 $admin_login = false;
 $showError = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $server = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "new_task_manag_db";
-
-  $conn = mysqli_connect($server, $username, $password, $database);
-  if (!$conn) { 
-      die("Error". mysqli_connect_error());
-  }
+  include 'partials/new_dbconnect.php';
 
   $username = $_POST["username"];
   $password = $_POST["password"];

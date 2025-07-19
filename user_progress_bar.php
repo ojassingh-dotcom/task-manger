@@ -4,14 +4,7 @@ if (!isset($_SESSION['rollno'])) {
     header("Location: login_page.php");
     exit;
 }
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "new_task_manag_db";
-$conn = mysqli_connect($servername, $username, $password, $database);
-if (!$conn) { 
-    die("Connection failed: " . mysqli_connect_error()); 
-}
+include 'partials/new_dbconnect.php';
 $rollno = $_SESSION['rollno'];
 $today = date("Y-m-d");
 $sql = "SELECT title, description, due_date, status FROM tasks WHERE assigned_to = '$rollno'";

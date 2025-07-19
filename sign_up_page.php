@@ -3,16 +3,7 @@ $showAlert = false;
 $showError = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "new_task_manag_db";
-
-    $conn = mysqli_connect($server, $username, $password, $database);
-
-    if (!$conn) {
-        die("Database connection failed: " . mysqli_connect_error());
-    }
+   include 'partials/new_dbconnect.php';
 
     $rollno = $_POST["rollno"];
     $username = $_POST["username"];

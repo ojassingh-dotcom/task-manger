@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'partials/new_dbconnection.php';
+include 'partials/new_dbconnect.php';
 
 if (!isset($_GET['rollno']) ) {
     die("Invalid student number.");
